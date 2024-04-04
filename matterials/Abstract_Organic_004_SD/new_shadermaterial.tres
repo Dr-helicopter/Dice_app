@@ -1,0 +1,30 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=2]
+
+[ext_resource path="res://matterials/Abstract_Organic_004_SD/new_shader.tres" type="Shader" id=1]
+[ext_resource path="res://matterials/Abstract_Organic_004_SD/Abstract_Organic_004_basecolor.jpg" type="Texture" id=2]
+[ext_resource path="res://matterials/Abstract_Organic_004_SD/Abstract_Organic_004_normal.jpg" type="Texture" id=3]
+[ext_resource path="res://matterials/Abstract_Organic_004_SD/Abstract_Organic_004_height.png" type="Texture" id=4]
+[ext_resource path="res://matterials/Abstract_Organic_004_SD/Abstract_Organic_004_ambientOcclusion.jpg" type="Texture" id=5]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/specular = 4.5
+shader_param/metallic = null
+shader_param/roughness = 1.0
+shader_param/point_size = 1.0
+shader_param/normal_scale = 1.0
+shader_param/ao_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/ao_light_affect = null
+shader_param/depth_scale = 0.3
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 0.2, 0 )
+shader_param/uv1_scale = Vector3( 1, 1, 1 )
+shader_param/uv1_offset = null
+shader_param/uv2_scale = null
+shader_param/uv2_offset = null
+shader_param/texture_albedo = ExtResource( 2 )
+shader_param/texture_normal = ExtResource( 3 )
+shader_param/texture_ambient_occlusion = ExtResource( 5 )
+shader_param/texture_depth = ExtResource( 4 )

@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=2]
+
+[ext_resource path="res://matterials/wood/new_shader.tres" type="Shader" id=1]
+[ext_resource path="res://matterials/wood/Stylized_Wood Siding_001_normal.jpg" type="Texture" id=2]
+[ext_resource path="res://matterials/wood/Stylized_Wood Siding_001_basecolor.jpg" type="Texture" id=3]
+[ext_resource path="res://matterials/wood/Stylized_Wood Siding_ORM.jpg" type="Texture" id=4]
+[ext_resource path="res://matterials/wood/Stylized_Wood Siding_001_height.png" type="Texture" id=5]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/depth_scale = 0.025
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 16
+shader_param/depth_flip = Vector2( 1, 0.5 )
+shader_param/uv1_scale = Vector2( 4, 4 )
+shader_param/uv1_offset = Vector2( 0, 0 )
+shader_param/albedo = ExtResource( 3 )
+shader_param/ORM = ExtResource( 4 )
+shader_param/Normal_map = ExtResource( 2 )
+shader_param/texture_depth = ExtResource( 5 )
