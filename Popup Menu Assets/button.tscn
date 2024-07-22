@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Popup Menu Assets/button.gd" type="Script" id=1]
+[ext_resource path="res://Popup Menu Assets/button.tres" type="Theme" id=2]
+
+[node name="button" type="CheckButton"]
+margin_left = 79.0
+margin_right = 226.0
+margin_bottom = 98.0
+focus_mode = 0
+mouse_filter = 1
+size_flags_horizontal = 15
+size_flags_vertical = 15
+size_flags_stretch_ratio = 2.0
+theme = ExtResource( 2 )
+pressed = true
+align = 2
+script = ExtResource( 1 )
+
+[connection signal="toggled" from="." to="." method="_on_button_toggled"]

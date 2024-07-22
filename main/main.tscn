@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://matterials/wood/wood_shadermaterial.tres" type="Material" id=1]
 [ext_resource path="res://dices/koin/coin.tscn" type="PackedScene" id=2]
@@ -6,20 +6,19 @@
 [ext_resource path="res://scripts/Camera.gd" type="Script" id=4]
 [ext_resource path="res://dices/D8/D8.tscn" type="PackedScene" id=5]
 [ext_resource path="res://dices/D6Classic/D6Classic.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Popup Menu Assets/Control.gd" type="Script" id=7]
+[ext_resource path="res://Popup Menu Assets/popup.lua" type="Script" id=7]
 [ext_resource path="res://Popup Menu Assets/TopToggleButton.png" type="Texture" id=8]
 [ext_resource path="res://Popup Menu Assets/MenuPullup.png" type="Texture" id=9]
-[ext_resource path="res://garbage can/ToggleOff.png" type="Texture" id=10]
-[ext_resource path="res://garbage can/ToggleOn.png" type="Texture" id=11]
+[ext_resource path="res://Popup Menu Assets/button.tscn" type="PackedScene" id=10]
+[ext_resource path="res://dices/D10/D10.tscn" type="PackedScene" id=11]
 [ext_resource path="res://garbage can/ARIAL.TTF" type="DynamicFontData" id=12]
 [ext_resource path="res://dices/D20/D20.tscn" type="PackedScene" id=13]
 [ext_resource path="res://dices/D12/D12.tscn" type="PackedScene" id=14]
 [ext_resource path="res://dices/D4/D4.tscn" type="PackedScene" id=15]
-[ext_resource path="res://dices/D10/D10.tscn" type="PackedScene" id=16]
 [ext_resource path="res://dices/D6/D6Modern.tscn" type="PackedScene" id=17]
 
 [sub_resource type="PlaneMesh" id=1]
-size = Vector2( 15, 20 )
+size = Vector2( 20, 15 )
 
 [sub_resource type="PlaneShape" id=2]
 
@@ -27,68 +26,33 @@ size = Vector2( 15, 20 )
 plane = Plane( 0, 0, -1, 0 )
 
 [sub_resource type="PlaneShape" id=4]
-margin = 1.0
-plane = Plane( 0, 0, 1, 0 )
+margin = 10.0
+plane = Plane( 0, 0, 1, 0.5 )
 
 [sub_resource type="PlaneShape" id=5]
-margin = 1.0
-plane = Plane( 0, 0, -1, 0 )
+margin = 10.0
+plane = Plane( 0, 0, -1, 0.5 )
 
 [sub_resource type="PlaneShape" id=6]
-margin = 1.0
-plane = Plane( -1, 0, 0, 0 )
+margin = 10.0
+plane = Plane( -1, 0, 0, 0.5 )
 
 [sub_resource type="PlaneShape" id=7]
-margin = 1.0
-plane = Plane( 1, 0, 0, 0 )
+margin = 10.0
+plane = Plane( 1, 0, 0, 0.5 )
 
-[sub_resource type="Theme" id=8]
-CheckBox/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
-CheckBox/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
-CheckBox/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
-CheckBox/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
-CheckBox/colors/font_color_hover_pressed = Color( 1, 1, 1, 1 )
-CheckBox/colors/font_color_pressed = Color( 1, 1, 1, 1 )
-CheckBox/constants/check_vadjust = 0
-CheckBox/constants/hseparation = 4
-CheckBox/fonts/font = null
-CheckBox/icons/checked = ExtResource( 11 )
-CheckBox/icons/checked_disabled = null
-CheckBox/icons/radio_checked = null
-CheckBox/icons/radio_checked_disabled = null
-CheckBox/icons/radio_unchecked = null
-CheckBox/icons/radio_unchecked_disabled = null
-CheckBox/icons/unchecked = null
-CheckBox/icons/unchecked_disabled = null
-CheckBox/styles/disabled = null
-CheckBox/styles/focus = null
-CheckBox/styles/hover = null
-CheckBox/styles/hover_pressed = null
-CheckBox/styles/normal = null
-CheckBox/styles/pressed = null
-CheckButton/icons/off = ExtResource( 10 )
-CheckButton/icons/off_disabled = ExtResource( 10 )
-CheckButton/icons/on = ExtResource( 11 )
-CheckButton/icons/on_disabled = ExtResource( 11 )
-
-[sub_resource type="DynamicFont" id=9]
-size = 43
+[sub_resource type="DynamicFont" id=8]
+size = 34
 font_data = ExtResource( 12 )
 
-[sub_resource type="DynamicFont" id=10]
-size = 37
-font_data = ExtResource( 12 )
-
-[sub_resource type="DynamicFont" id=11]
-size = 35
-font_data = ExtResource( 12 )
+[sub_resource type="Theme" id=9]
+default_font = SubResource( 8 )
 
 [node name="main" type="Spatial"]
 
 [node name="table" type="StaticBody" parent="."]
 
 [node name="CSGMesh" type="CSGMesh" parent="table"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0687187, 6.16312e-05, 0.805869 )
 snap = 0.01
 mesh = SubResource( 1 )
 material = ExtResource( 1 )
@@ -97,12 +61,12 @@ material = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="table"]
-transform = Transform( -0.560249, -0.786528, 0.2598, 0, 0.313645, 0.94954, -0.828324, 0.531979, -0.175719, 0, 8.77629, 0 )
+transform = Transform( -0.560249, -0.786527, 0.2598, 0, 0.313645, 0.94954, -0.828324, 0.531979, -0.175719, 0, 8.77629, 0 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 6, 0 )
+transform = Transform( 0, -1, 0, 0, 0, 1, -1, 0, 0, 0, 6, 0 )
 script = ExtResource( 4 )
-factor = 0.1
+factor = 0.02
 
 [node name="StaticBody" type="StaticBody" parent="Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
@@ -116,27 +80,32 @@ script = ExtResource( 3 )
 
 [node name="coin" parent="dices" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0121359, 0, -0.00823665 )
+input_ray_pickable = true
+linear_velocity = Vector3( 0, 10, 0 )
+angular_velocity = Vector3( 7, 0, 0 )
 
 [node name="D4" parent="dices" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -2 )
 
-[node name="D6Modern" parent="dices" instance=ExtResource( 17 )]
+[node name="D6" parent="dices" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, 0 )
+input_ray_pickable = true
 
 [node name="D6Classic" parent="dices" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 0 )
+input_ray_pickable = true
 
 [node name="D8" parent="dices" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.375, -2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.576248, -2 )
 
-[node name="D10" parent="dices" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.459, -2 )
+[node name="D10" parent="dices" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.598813, -2 )
 
 [node name="D12" parent="dices" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.508742, 2 )
 
 [node name="D20" parent="dices" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.495865, 2 )
 
 [node name="divar ha" type="StaticBody" parent="."]
 
@@ -159,10 +128,10 @@ shape = SubResource( 7 )
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="popup" type="Control" parent="UI"]
-anchor_top = 1.0
+anchor_top = 0.895
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -126.0
+margin_top = 1.3999
 mouse_filter = 1
 script = ExtResource( 7 )
 
@@ -189,12 +158,10 @@ expand = true
 [node name="NinePatchRect" type="NinePatchRect" parent="UI/popup/VBoxContainer"]
 margin_top = 35.0
 margin_right = 720.0
-margin_bottom = 161.0
+margin_bottom = 168.0
 mouse_filter = 1
 size_flags_vertical = 3
 texture = ExtResource( 9 )
-region_rect = Rect2( 1207.55, -128.729, 0, 0 )
-patch_margin_bottom = 59
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI/popup/VBoxContainer/NinePatchRect"]
 anchor_right = 1.0
@@ -208,209 +175,165 @@ size_flags_horizontal = 5
 custom_constants/separation = 3
 alignment = 1
 
-[node name="coin" type="CheckButton" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer"]
+[node name="coin" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 0.0
 margin_right = 147.0
-margin_bottom = 98.0
-focus_mode = 0
-size_flags_horizontal = 15
-size_flags_vertical = 15
-size_flags_stretch_ratio = 2.0
-theme = SubResource( 8 )
-pressed = true
-align = 2
+focus_mode = 2
+_dice = "coin"
 
 [node name="Label" type="Label" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/coin"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_bottom = 92.0
-grow_horizontal = 2
-grow_vertical = 2
-custom_fonts/font = SubResource( 9 )
+margin_left = -31.5
+margin_top = 29.0
+margin_right = 31.5
+margin_bottom = 19.5
+theme = SubResource( 9 )
 text = "coin"
 align = 1
 valign = 1
 
-[node name="D4" type="CheckButton" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer"]
+[node name="D4" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
 margin_left = 150.0
 margin_right = 297.0
-margin_bottom = 98.0
-size_flags_horizontal = 15
-size_flags_vertical = 15
-size_flags_stretch_ratio = 2.0
-theme = SubResource( 8 )
-pressed = true
-align = 2
+focus_mode = 2
+_dice = "D4"
 
 [node name="Label" type="Label" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/D4"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_bottom = 92.0
-grow_horizontal = 2
-grow_vertical = 2
-custom_fonts/font = SubResource( 9 )
+margin_left = -31.5
+margin_top = 29.0
+margin_right = 31.5
+margin_bottom = 19.5
+theme = SubResource( 9 )
 text = "D4"
 align = 1
 valign = 1
 
-[node name="D6classic" type="CheckButton" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer"]
+[node name="D6" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
 margin_left = 300.0
 margin_right = 447.0
-margin_bottom = 98.0
-size_flags_horizontal = 15
-size_flags_vertical = 15
-size_flags_stretch_ratio = 2.0
-theme = SubResource( 8 )
-pressed = true
-align = 2
+focus_mode = 2
+_dice = "D6"
+
+[node name="Label" type="Label" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/D6"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.5
+margin_top = 29.0
+margin_right = 31.5
+margin_bottom = 19.5
+theme = SubResource( 9 )
+text = "D6"
+align = 1
+valign = 1
+
+[node name="D6classic" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 450.0
+margin_right = 597.0
+focus_mode = 2
+_dice = "D6Classic"
 
 [node name="Label" type="Label" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/D6classic"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -96.5
-margin_right = 64.5
-margin_bottom = 92.0
-grow_horizontal = 2
-grow_vertical = 2
-custom_fonts/font = SubResource( 10 )
+margin_left = -68.0
+margin_top = 29.0
+margin_right = 73.5
+margin_bottom = 17.0
+theme = SubResource( 9 )
 text = "D6classic"
 align = 1
 valign = 1
 
-[node name="D6Modern" type="CheckButton" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer"]
-margin_left = 450.0
-margin_right = 597.0
-margin_bottom = 98.0
-size_flags_horizontal = 15
-size_flags_vertical = 15
-size_flags_stretch_ratio = 2.0
-theme = SubResource( 8 )
-pressed = true
-align = 2
-
-[node name="Label" type="Label" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/D6Modern"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_bottom = 92.0
-grow_horizontal = 2
-grow_vertical = 2
-custom_fonts/font = SubResource( 11 )
-text = "
-D6Modern
-"
-align = 1
-valign = 1
-
-[node name="D8" type="CheckButton" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer"]
+[node name="D8" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
 margin_left = 600.0
 margin_right = 747.0
-margin_bottom = 98.0
-size_flags_horizontal = 15
-size_flags_vertical = 15
-size_flags_stretch_ratio = 2.0
-theme = SubResource( 8 )
-pressed = true
-align = 2
+focus_mode = 2
+_dice = "D8"
 
 [node name="Label" type="Label" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/D8"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_bottom = 92.0
-grow_horizontal = 2
-grow_vertical = 2
-custom_fonts/font = SubResource( 9 )
+margin_left = -31.5
+margin_top = 29.0
+margin_right = 31.5
+margin_bottom = 19.5
+theme = SubResource( 9 )
 text = "D8"
 align = 1
 valign = 1
 
-[node name="D10" type="CheckButton" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer"]
+[node name="D10" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
 margin_left = 750.0
 margin_right = 897.0
-margin_bottom = 98.0
-size_flags_horizontal = 15
-size_flags_vertical = 15
-size_flags_stretch_ratio = 2.0
-theme = SubResource( 8 )
-pressed = true
-align = 2
+focus_mode = 2
+_dice = "D10"
 
 [node name="Label" type="Label" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/D10"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_bottom = 92.0
-grow_horizontal = 2
-grow_vertical = 2
-custom_fonts/font = SubResource( 9 )
+margin_left = -31.5
+margin_top = 29.0
+margin_right = 31.5
+margin_bottom = 19.5
+theme = SubResource( 9 )
 text = "D10"
 align = 1
 valign = 1
 
-[node name="D12" type="CheckButton" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer"]
+[node name="D12" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
 margin_left = 900.0
 margin_right = 1047.0
-margin_bottom = 98.0
-size_flags_horizontal = 15
-size_flags_vertical = 15
-size_flags_stretch_ratio = 2.0
-theme = SubResource( 8 )
-pressed = true
-align = 2
+focus_mode = 2
+_dice = "D12"
 
 [node name="Label" type="Label" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/D12"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_bottom = 92.0
-grow_horizontal = 2
-grow_vertical = 2
-custom_fonts/font = SubResource( 9 )
+margin_left = -31.5
+margin_top = 29.0
+margin_right = 31.5
+margin_bottom = 19.5
+theme = SubResource( 9 )
 text = "D12"
 align = 1
 valign = 1
 
-[node name="D20" type="CheckButton" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer"]
+[node name="D20" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
 margin_left = 1050.0
 margin_right = 1197.0
-margin_bottom = 98.0
-size_flags_horizontal = 15
-size_flags_vertical = 15
-size_flags_stretch_ratio = 2.0
-theme = SubResource( 8 )
-pressed = true
-align = 2
+focus_mode = 2
+_dice = "D20"
 
 [node name="Label" type="Label" parent="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/D20"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_bottom = 92.0
-grow_horizontal = 2
-grow_vertical = 2
-custom_fonts/font = SubResource( 9 )
+margin_left = -31.5
+margin_top = 29.0
+margin_right = 31.5
+margin_bottom = 19.5
+theme = SubResource( 9 )
 text = "D20"
 align = 1
 valign = 1
 
 [connection signal="moving" from="Camera" to="dices" method="_on_Camera_moving"]
 [connection signal="pressed" from="UI/popup/VBoxContainer/TextureButton" to="UI/popup" method="_on_TextureButton_pressed"]
-[connection signal="toggled" from="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/coin" to="dices" method="_on_coin_toggled"]
-[connection signal="toggled" from="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/D4" to="dices" method="_on_D4_toggled"]
-[connection signal="toggled" from="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/D6classic" to="dices" method="_on_D6classic_toggled"]
-[connection signal="toggled" from="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/D6Modern" to="dices" method="_on_D6Modern_toggled"]
-[connection signal="toggled" from="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/D8" to="dices" method="_on_D8_toggled"]
-[connection signal="toggled" from="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/D10" to="dices" method="_on_D10_toggled"]
-[connection signal="toggled" from="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/D12" to="dices" method="_on_D12_toggled"]
-[connection signal="toggled" from="UI/popup/VBoxContainer/NinePatchRect/ScrollContainer/HBoxContainer/D20" to="dices" method="_on_D20_toggled"]

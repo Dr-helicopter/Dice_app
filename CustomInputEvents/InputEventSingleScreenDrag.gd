@@ -12,5 +12,7 @@ func _init(_raw_gesture : RawGesture = null) -> void:
 		position = dragEvent.position
 		relative = dragEvent.relative
 
+var typ : String = "swip"
+
 func as_text():
 	return "position=" + str(position) + "|relative=" + str(relative)

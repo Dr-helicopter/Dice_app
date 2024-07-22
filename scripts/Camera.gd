@@ -17,7 +17,7 @@ onready var divar_d : CollisionShape  = $"../divar ha/divar_E_pain"
 func _ready():
 	target_position = translation.y
 
-func _process(delta):
+func _process(_delta):
 	translation.y = lerp(translation.y, target_position , 0.3)
 	if abs(translation.y - target_position) > 0.01:
 		emit_signal("moving")
@@ -34,4 +34,4 @@ func resize(middle : Vector2) -> float:
 
 func zoom(change : float):
 	target_position -= change * factor
-	target_position = clamp(target_position , 2 , 8)
+	target_position = clamp(target_position , 4 , 11)

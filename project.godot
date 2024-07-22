@@ -8,6 +8,94 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "RigidBody",
+"class": "Dice",
+"language": "GDScript",
+"path": "res://script_templates/Dice.gd"
+}, {
+"base": "CheckButton",
+"class": "DiceControl",
+"language": "GDScript",
+"path": "res://Popup Menu Assets/button.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventMultiScreenDrag",
+"language": "GDScript",
+"path": "res://CustomInputEvents/InputEventMultiScreenDrag.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventMultiScreenLongPress",
+"language": "GDScript",
+"path": "res://CustomInputEvents/InputEventMultiScreenLongPress.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventMultiScreenSwipe",
+"language": "GDScript",
+"path": "res://CustomInputEvents/InputEventMultiScreenSwipe.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventMultiScreenTap",
+"language": "GDScript",
+"path": "res://CustomInputEvents/InputEventMultiScreenTap.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventScreenPinch",
+"language": "GDScript",
+"path": "res://CustomInputEvents/InputEventScreenPinch.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventScreenTwist",
+"language": "GDScript",
+"path": "res://CustomInputEvents/InputEventScreenTwist.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventSingleScreenDrag",
+"language": "GDScript",
+"path": "res://CustomInputEvents/InputEventSingleScreenDrag.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventSingleScreenLongPress",
+"language": "GDScript",
+"path": "res://CustomInputEvents/InputEventSingleScreenLongPress.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventSingleScreenSwipe",
+"language": "GDScript",
+"path": "res://CustomInputEvents/InputEventSingleScreenSwipe.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventSingleScreenTap",
+"language": "GDScript",
+"path": "res://CustomInputEvents/InputEventSingleScreenTap.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventSingleScreenTouch",
+"language": "GDScript",
+"path": "res://CustomInputEvents/InputEventSingleScreenTouch.gd"
+}, {
+"base": "InputEventAction",
+"class": "RawGesture",
+"language": "GDScript",
+"path": "res://RawGesture.gd"
+} ]
+_global_script_class_icons={
+"Dice": "",
+"DiceControl": "",
+"InputEventMultiScreenDrag": "",
+"InputEventMultiScreenLongPress": "",
+"InputEventMultiScreenSwipe": "",
+"InputEventMultiScreenTap": "",
+"InputEventScreenPinch": "",
+"InputEventScreenTwist": "",
+"InputEventSingleScreenDrag": "",
+"InputEventSingleScreenLongPress": "",
+"InputEventSingleScreenSwipe": "",
+"InputEventSingleScreenTap": "",
+"InputEventSingleScreenTouch": "",
+"RawGesture": ""
+}
+
 [application]
 
 config/name="Dice Demo"
@@ -28,10 +116,20 @@ window/size/width=720
 window/size/height=1280
 window/handheld/orientation="portrait"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/godot-lua-pluginscript/plugin/plugin.cfg" )
+
+[gdnative]
+
+singletons=[ "res://addons/godot-lua-pluginscript/lua_pluginscript.gdnlib" ]
+singletons_disabled=[  ]
+
 [global]
 
 impo=false
 .net=false
+main=false
 
 [gui]
 

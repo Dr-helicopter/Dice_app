@@ -3,4 +3,5 @@
 [ext_resource path="res://script_templates/Dice.gd" type="Script" id=1]
 
 [node name="Dice" type="RigidBody"]
+input_ray_pickable = false
 script = ExtResource( 1 )
